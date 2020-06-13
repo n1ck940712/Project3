@@ -1,0 +1,36 @@
+{% extends "orders/layout.html" %}
+{% block title %}Orders Manger{% endblock %}
+{% block body %}
+    <div class="orderManagerContainer">
+        <h1 id="orderManagerTitle">Orders Manager</h1>
+        {% for i in order_list %}
+            {% if i.order_status == "Preparing"%}
+            <div class="orderDivPending">
+                <h4>Order No.{{i.order_number}}</h4>
+                <p>Ordered by: {{i.ordered_by}} | Status: {{i.order_status}}</p>
+                <button type="button" name="button" onclick="orderReady('{{i.id}}',{{order_cart}})">Details</button>
+            </div>
+            {% endif %}
+        {% endfor %}
+        {% for i in order_list %}
+            {% if i.order_status == "Completed"%}
+            <div class="orderDivComplete">
+                <h4>Order No.{{i.order_number}}</h4>
+                <p>Ordered by: {{i.ordered_by}} | Status: {{i.order_status}}</p>
+            </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+    <div class="popUpWin">
+        <div class="popUpWinContentA">
+            <h3 id="popUpWinTitle"></h3>
+            <div class="popUpWinContentAsub"></div>
+            <form class="orderReadyForm" action="{% url 'orderReady' %}" method="post">
+                {% csrf_token %}
+                <div class="inviForm"></div>
+                <button type="button" class="closeButton">Back</button>
+                <button type="submit" name="button">Ready</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

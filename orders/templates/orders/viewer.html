@@ -1,0 +1,22 @@
+{% extends "orders/layout.html" %}
+{% block title %}Order Status{% endblock %}
+{% block body %}
+    <div class="orderView">
+        {% if order_list %}
+                {% for item in order_list %}
+                    <div class="orderViewItem">
+                    <p>Order no. {{item.order_number}} | {{item.ordered_by}} | Order status: {{item.order_status}}</p>
+                    <button type="button" name="button" onclick="orderDetails('{{item.id}}',{{order_cart}})">Details</button>
+                    </div>
+                {% endfor %}
+        {% else %}
+            <p>You have no orders</p>
+        {% endif %}
+    </div>
+    <div class="popUpWin">
+        <div class="popUpWinContentA">
+            <h3 id="popUpWinTitle">Order Details</h3>
+            <button type="button" class="closeButton">Ok</button>
+        </div>
+    </div>
+{% endblock %}

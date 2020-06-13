@@ -1,0 +1,13 @@
+{% extends "orders/layout.html" %}
+{% block title %}Cart{% endblock %}
+{% block body %}
+        <div class="cart">
+            <div class="cartList">
+                <ul>
+                    {% for item in menuList %}
+                    <li><a href="add/{{item.name}}">{{item.name}} - {{item.small}} - {{item.large}}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+{% endblock %}

@@ -1,0 +1,201 @@
+.topBar{
+    background-color: #fcba03;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 50px;
+    height: 50px;
+}
+
+.homepageCenter{
+    text-align: center;
+    height: 50%;
+}
+
+.container-fluid{
+    margin-top: 50px;
+    width: 100%;
+    display: flex;
+    height: 100%;
+}
+
+.menuCategoryList{
+    max-width: 330px;
+    background-color: tan;
+    text-align: center;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    opacity: 0.9;
+}
+.menuCategoryList > p > a{
+    color: black;
+    margin-bottom: 10px;
+}
+.menu{
+    width: 50%;
+    text-align: center;
+}
+th, td {
+    padding: 5px;
+}
+td > button{
+    margin-left: 4px;
+    background-color: green;
+    border-radius: 40%;
+    font-weight: bold;
+}
+.orderList{
+    max-width: 330px;
+    background-color: tan;
+    text-align: center;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    opacity: 0.9;
+}
+.orderList > p > button {
+    font-weight: bold;
+    background-color: red;
+    border-radius: 45%;
+}
+.popUpWin{
+    text-align: center;
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
+}
+.popUpWinContentA, .popUpWinContentB, .popUpWinContentC, .popUpWinContentD{
+    margin: 0 auto;
+    background-color: #fcba03;
+    padding: 30px;
+    border: 2px solid black;
+    border-radius: 5px;
+    max-width: 330px;
+}
+.orderManagerContainer{
+    text-align: center;
+    width: 100%;
+
+}
+.orderReview{
+    text-align: center;
+    width: 100%;
+}
+.orderView{
+    margin: 0 auto;
+}
+.orderViewItem{
+    max-width: 330px;
+    background-color: tan;
+    text-align: center;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    opacity: 0.9;
+}
+.orderDivComplete{
+    max-width: 330px;
+    background-color: grey;
+    text-align: center;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    opacity: 0.9;
+}
+.orderDivPending{
+    color: lightgrey;
+    max-width: 330px;
+    background-color: green;
+    text-align: center;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    opacity: 0.9;
+}
+.homepageCenter{
+    max-width: 660px;
+    background-color: tan;
+    text-align: center;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    opacity: 0.9;
+}
+.menu{
+    max-width: 660px;
+    background-color: tan;
+    text-align: center;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    opacity: 0.9;
+}
+body{
+    height: 100%;
+    background: white url("background.jpg") no-repeat;
+    background-size: cover;
+}
+.form-signin {
+    text-align: center;
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+    background-color: tan;
+    border-radius: 10px;
+    opacity: .9;
+}
+.alert.alert-success{
+    text-align: center;
+}
+.menuList{
+    text-align: center;
+}
+.menuList table{
+    margin: 0 auto;
+}
+.left{
+    max-width: 100px;
+}
+.right{
+    height: 100%;
+    margin-top: auto;
+    display: flex;
+}
+.right1{
+    margin-right: 15px;
+}
+.right1 > a{
+    color: black;
+}
+.right2 > a{
+    color: black;
+}
+#popUpWinTotal{
+    color: forestgreen;
+}
+#orderManagerTitle{
+    color: white;
+}
+.logoPic{
+    height: 100%;
+}
+.priceClass{
+    color: forestgreen;
+    font-weight: bold;
+}

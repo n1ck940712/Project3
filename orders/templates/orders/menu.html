@@ -1,0 +1,80 @@
+{% extends "orders/layout.html" %}
+{% block title %}Menu{% endblock %}
+{% block body %}
+        <div class="menu">
+            <div class="menuTitle">
+                <h1>{{category}}</h1>
+            </div>
+            <div class="menuList">
+                <table>
+                    {% if category == "Salad" or category == "Pasta" %}
+                        <tr>
+                            <th>Name</th><th>Price</th>
+                        </tr>
+                        {% for item in menuList %}
+                        <tr>
+                            <td>{{item.name}}</td><td>{{item.price|floatformat:2}}<button type="button" onclick="popUpA('{{category}}', '{{item.name}}', '{{item.price}}', 'regular', {{addOn}})"> + </button></td>
+                        </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <th>Name</th><th>Price (S)</th><th>Price (L)</th>
+                        </tr>
+                        {% for item in menuList %}
+                        <tr>
+                            {% if item.small == 0 %}
+                                <td>{{item.name}}</td><td>-</td><td>{{item.large|floatformat:2}}<button type="button" onclick="popUpA('{{category}}', '{{item.name}}', '{{item.large}}', {{addOn}})"> + </button></td>
+                            {% else %}
+                                <td>{{item.name}}</td><td>{{item.small|floatformat:2}}<button type="button" onclick="popUpA('{{category}}', '{{item.name}}', '{{item.small}}', 'small', {{addOn}})"> + </button></td><td>{{item.large|floatformat:2}}<button type="button" onclick="popUpA('{{category}}', '{{item.name}}', '{{item.large}}', 'large', {{addOn}})"> + </button></td>
+                            {% endif %}
+                        </tr>
+                        {% endfor %}
+                    {% endif %}
+                </table>
+            </div>
+        </div>
+        <div class="popUpWin">
+            <div class="popUpWinContentA">
+                <h3 id="popUpWinTitle"></h3>
+                <form class="addItemForm" action="{% url 'addItem' category %}" method="post">
+                    {% csrf_token %}
+                    <div class="inviForm"></div>
+                    <div class="topping1">
+                        <label for="topping1">Topping 1 </label>
+                        <select class="toppingSel" name="topping1"></select>
+                    </div>
+                    <div class="topping2">
+                        <label for="topping2">Topping 2 </label>
+                        <select class="toppingSel" name="topping2"></select>
+                    </div>
+                    <div class="topping3">
+                        <label for="topping3">Topping 3 </label>
+                        <select class="toppingSel" name="topping3"></select>
+                    </div>
+                    <div class="subAddOn"></div>
+                    <h6 id="popUpWinTotal">Price: <span id="priceSpan"></span></h6>
+                    <button type="button" class="closeButton">Cancel</button>
+                    <button type="submit" name="button">Add</button>
+                </form>
+            </div>
+            <div class="popUpWinContentB">
+                <h3 id="popUpWinTitleB"></h3>
+                <form class="popUpWinFormB" action="{% url 'orderConfirm' %}" method="post">
+                    {% csrf_token %}
+                    <div class="orderReview"></div>
+                    <button type="button" class="closeButton">Cancel</button>
+                    <button type="submit" name="button">Confirm</button>
+                </form>
+            </div>
+            <div class="popUpWinContentC">
+                <h3 id="popUpWinTitleC"></h3>
+                <form class="popUpWinFormC" action="{% url 'removeItem' category %}" method="post">
+                    {% csrf_token %}
+                    <div class="inviForm"></div>
+                    <div class="removeReview"></div>
+                    <button type="button" class="closeButton">Cancel</button>
+                    <button type="submit" name="button">Remove</button>
+                </form>
+            </div>
+        </div>
+{% endblock %}

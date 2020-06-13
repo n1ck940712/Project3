@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Select your topping</title>
+    </head>
+    <body>
+        <div class="menu">
+            <div class="menuTitle">
+                <h1>{{category}}</h1>
+            </div>
+            <div class="menuList">
+                <h2>Select <span id="toppingNumber">{{topping_number}}</span> topping(s)</h2>
+                <form action="{% url 'selectTopping' category name price topping_number%}" method="post">
+                    {% csrf_token %}
+                    <label for="toppingSelector">Topping {{topping_number}}</label>
+                    <select class="toppingSelector" name="topping">
+                        {% for item in menuList %}
+                        <option value={{item.name}}>{{item.name}}</option>
+                        {% endfor %}
+                    </select>
+                    <br>
+                    <input type="submit" value="submit">
+                </form>
+            </div>
+        </div>
+
+    </body>
+</html>
+{% with ''|center:topping_number as range %}
+{% for test in range %}
+{% endfor %}
+{% endwith %}

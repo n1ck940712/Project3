@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        {% load static %}
+        <script src="{% static 'orders/app.js' %}" charset="utf-8"></script>
+        <link rel="stylesheet" type="text/css" href="{% static 'orders/style.css' %}">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <title>Login - Pinnochio's</title>
+    </head>
+    <body>
+        {% if message %}
+            <div class="alert alert-success" role="alert">
+                {{message}}
+            </div>
+        {% endif %}
+        <form class="form-signin" action="login" method="post">
+            {% csrf_token %}
+            <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+            <label for="inputEmail" class="sr-only">Username</label>
+            <input type="username" id="inputEmail" class="form-control" name="username" placeholder="Username" required autofocus >
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password" required >
+            <div class="checkbox mb-3">
+                <label>
+                    <input type="checkbox" value="remember-me"> Remember me
+                </label>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign In</button>
+            <button class="btn btn-lg btn-primary btn-block" type="button" onclick="popUpD()">Register Now</button>
+            <p class="mt-5 mb-3 text-muted" style="color:white">&copy; 2017-2018</p>
+        </form>
+        <div class="popUpWin">
+            <div class="popUpWinContentD">
+                <h3 id="popUpWinTitleD"></h3>
+                <form class="popUpWinFormD" action="{% url 'register' %}" method="post">
+                    {% csrf_token %}
+                    <input type="username" class="form-control" name="username" placeholder="username" id="registerUsername" required>
+                    <input type="email" class="form-control" name="email" placeholder="email" required>
+                    <input type="password" class="form-control" name="password" placeholder="password" required>
+                    <button type="submit" name="button">Register</button>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
